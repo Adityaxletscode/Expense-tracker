@@ -1,3 +1,4 @@
+// server.js
 import express from "express";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
@@ -13,10 +14,10 @@ const app = express();
 // Middleware
 app.use(bodyParser.json());
 
-// Allow requests from any origin (GitHub Pages frontend can access)
+// Allow requests from any origin (for GitHub Pages frontend)
 app.use(
   cors({
-    origin: "*", // Or replace "*" with your GitHub Pages URL for security
+    origin: "https://Adityaxletscode.github.io",
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type"],
   })
@@ -41,6 +42,7 @@ app.post("/signup", async (req, res) => {
   console.log("REQ BODY:", req.body);
   try {
     const { name, email, password } = req.body;
+
     if (!name || !email || !password) {
       return res
         .status(400)
@@ -74,6 +76,7 @@ app.post("/signin", async (req, res) => {
   console.log("REQ BODY:", req.body);
   try {
     const { email, password } = req.body;
+
     if (!email || !password) {
       return res
         .status(400)
@@ -101,7 +104,7 @@ app.post("/signin", async (req, res) => {
   }
 });
 
-// Example expenses route (replace with your actual DB logic if needed)
+// Example expenses route
 app.get("/expenses", (req, res) => {
   res.json([
     { id: 1, desc: "Groceries", amount: 200 },
