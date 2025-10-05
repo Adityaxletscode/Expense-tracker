@@ -1,3 +1,8 @@
+// ---------------- URLs ----------------
+const BACKEND_URL = "https://expense-tracker-gpov.onrender.com"; // Render backend
+const FRONTEND_URL = "https://Adityaxletscode.github.io/Expense-tracker"; // GitHub Pages frontend
+
+// ---------------- Login/Signup Elements ----------------
 const errorMsg = document.querySelector(".error_message");
 const budgetInput = document.querySelector(".budget_input");
 const expenseDesc = document.querySelector(".expenses_input");
@@ -11,11 +16,12 @@ const loginBtn = document.getElementById("loginBtn");
 let itemList = [];
 let itemId = 0;
 
-// Show welcome message if logged in
+// ---------------- Show welcome message if logged in ----------------
 window.addEventListener("DOMContentLoaded", () => {
   const username = localStorage.getItem("username");
   if (username) {
     loginBtn.style.display = "none";
+
     const welcomeDiv = document.createElement("div");
     welcomeDiv.id = "welcomeMsg";
     welcomeDiv.style.textAlign = "right";
@@ -30,22 +36,22 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// Redirect to login page if login button clicked
-loginBtn.addEventListener("click", () => {
-  window.location.href = "../login/index.html"; // path to your login page
+// ---------------- Redirect to login page ----------------
+loginBtn?.addEventListener("click", () => {
+  window.location.href = `${FRONTEND_URL}/login/index.html`;
 });
 
-// Budget & Expense button events
+// ---------------- Budget & Expense button events ----------------
 function btnEvents() {
   const btnBudgetCal = document.querySelector("#btn_budget");
   const btnExpenseCal = document.querySelector("#btn_expenses");
 
-  btnBudgetCal.addEventListener("click", (e) => {
+  btnBudgetCal?.addEventListener("click", (e) => {
     e.preventDefault();
     budgetFun();
   });
 
-  btnExpenseCal.addEventListener("click", (e) => {
+  btnExpenseCal?.addEventListener("click", (e) => {
     e.preventDefault();
     expensesFun();
   });
@@ -53,8 +59,9 @@ function btnEvents() {
 
 document.addEventListener("DOMContentLoaded", btnEvents);
 
-// Show error messages
+// ---------------- Show error messages ----------------
 function showError(msg) {
+  if (!errorMsg) return;
   errorMsg.innerHTML = msg;
   errorMsg.style.display = "block";
   errorMsg.classList.add("error");
@@ -66,7 +73,7 @@ function showError(msg) {
   }, 2500);
 }
 
-// Budget calculation
+// ---------------- Budget calculation ----------------
 function budgetFun() {
   const budgetValue = budgetInput.value.trim();
 
@@ -83,7 +90,7 @@ function budgetFun() {
   }
 }
 
-// Expenses calculation
+// ---------------- Expenses calculation ----------------
 function expensesFun() {
   const desc = expenseDesc.value.trim();
   const amountValue = expenseAmount.value.trim();
@@ -100,7 +107,7 @@ function expensesFun() {
   }
 }
 
-// Render expense table
+// ---------------- Render expense table ----------------
 function renderTable() {
   tblRecord.innerHTML = "";
   itemList.forEach((item, index) => {
@@ -141,14 +148,14 @@ function renderTable() {
   });
 }
 
-// Total expenses calculation
+// ---------------- Total expenses calculation ----------------
 function totalExpenses() {
   return itemList.length > 0
     ? itemList.reduce((acc, curr) => acc + curr.expenseAmount, 0)
     : 0;
 }
 
-// Show balance
+// ---------------- Show balance ----------------
 function showBalance() {
   const expenses = totalExpenses();
   expensesCard.textContent = expenses;
@@ -157,7 +164,7 @@ function showBalance() {
   balanceCard.textContent = balance;
 }
 
-// Clear input fields
+// ---------------- Clear input fields ----------------
 function clearInputs() {
   setTimeout(() => {
     budgetInput.value = "";
