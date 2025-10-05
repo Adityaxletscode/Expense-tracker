@@ -1,6 +1,6 @@
 // URLs
 const BACKEND_URL = "https://expense-tracker-gpov.onrender.com"; // Render backend
-const FRONTEND_URL = "https://Adityaxletscode.github.io/Expense-tracker/docs"; // GitHub Pages frontend in docs folder
+const FRONTEND_URL = "https://Adityaxletscode.github.io/Expense-tracker"; // GitHub Pages frontend in docs folder
 
 // Signup functionality
 document.querySelector(".signupbtn").addEventListener("click", async () => {
