@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 // Allow requests from any origin (for GitHub Pages frontend)
 app.use(
   cors({
-    origin: "https://Adityaxletscode.github.io",
+    origin: "https://adityaxletscode.github.io",
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type"],
   })
