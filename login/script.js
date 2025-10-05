@@ -1,3 +1,8 @@
+// URLs
+const BACKEND_URL = "https://expense-tracker-gpov.onrender.com"; // Render backend
+const FRONTEND_URL = "https://Adityaxletscode.github.io/Expense-tracker"; // GitHub Pages frontend
+
+// Signup functionality
 document.querySelector(".signupbtn").addEventListener("click", async () => {
   const name = document.querySelector(".namefield input").value;
   const email = document.querySelector('input[type="email"]').value;
@@ -9,7 +14,7 @@ document.querySelector(".signupbtn").addEventListener("click", async () => {
   }
 
   try {
-    const res = await fetch("http://localhost:5000/signup", {
+    const res = await fetch(`${BACKEND_URL}/signup`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, email, password }),
@@ -21,8 +26,8 @@ document.querySelector(".signupbtn").addEventListener("click", async () => {
     if (data.success) {
       // Save username in localStorage
       localStorage.setItem("username", name);
-      // Redirect to frontend index page
-      window.location.href = "../frontend/index.html";
+      // Redirect to frontend index page on GitHub Pages
+      window.location.href = `${FRONTEND_URL}/index.html`;
     }
   } catch (error) {
     console.error("Error:", error);
@@ -30,6 +35,7 @@ document.querySelector(".signupbtn").addEventListener("click", async () => {
   }
 });
 
+// Signin functionality
 document.querySelector(".signinbtn").addEventListener("click", async () => {
   const email = document.querySelector('input[type="email"]').value;
   const password = document.querySelector('input[type="password"]').value;
@@ -40,7 +46,7 @@ document.querySelector(".signinbtn").addEventListener("click", async () => {
   }
 
   try {
-    const res = await fetch("http://localhost:5000/signin", {
+    const res = await fetch(`${BACKEND_URL}/signin`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
@@ -50,10 +56,8 @@ document.querySelector(".signinbtn").addEventListener("click", async () => {
 
     if (data.success) {
       alert("Login Successful!");
-      // Save username in localStorage
       localStorage.setItem("username", data.name);
-      // Redirect to frontend index page
-      window.location.href = "../frontend/index.html";
+      window.location.href = `${FRONTEND_URL}/index.html`;
     } else {
       alert(data.message);
     }
@@ -63,9 +67,13 @@ document.querySelector(".signinbtn").addEventListener("click", async () => {
   }
 });
 
-document.getElementById("togglePassword")?.addEventListener("click", function () {
-  const passwordInput = document.getElementById("password");
-  const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
-  passwordInput.setAttribute("type", type);
-  this.classList.toggle("fa-eye-slash");
-});
+// Toggle password visibility
+document
+  .getElementById("togglePassword")
+  ?.addEventListener("click", function () {
+    const passwordInput = document.getElementById("password");
+    const type =
+      passwordInput.getAttribute("type") === "password" ? "text" : "password";
+    passwordInput.setAttribute("type", type);
+    this.classList.toggle("fa-eye-slash");
+  });
