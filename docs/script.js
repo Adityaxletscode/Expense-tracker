@@ -2,7 +2,7 @@
 const BACKEND_URL = "https://expense-tracker-gpov.onrender.com"; // Render backend
 const FRONTEND_URL = "https://Adityaxletscode.github.io/Expense-tracker"; // GitHub Pages frontend
 
-// ---------------- Login/Signup Elements ----------------
+// ---------------- Elements ----------------
 const errorMsg = document.querySelector(".error_message");
 const budgetInput = document.querySelector(".budget_input");
 const expenseDesc = document.querySelector(".expenses_input");
@@ -20,7 +20,7 @@ let itemId = 0;
 window.addEventListener("DOMContentLoaded", () => {
   const username = localStorage.getItem("username");
   if (username) {
-    loginBtn.style.display = "none";
+    loginBtn?.style.display = "none";
 
     const welcomeDiv = document.createElement("div");
     welcomeDiv.id = "welcomeMsg";
@@ -30,9 +30,9 @@ window.addEventListener("DOMContentLoaded", () => {
     welcomeDiv.textContent = `Welcome, ${username}!`;
 
     const container = document.querySelector(".container");
-    container.parentNode.insertBefore(welcomeDiv, container);
+    container?.parentNode.insertBefore(welcomeDiv, container);
   } else {
-    loginBtn.style.display = "block";
+    loginBtn?.style.display = "block";
   }
 });
 
@@ -77,11 +77,7 @@ function showError(msg) {
 function budgetFun() {
   const budgetValue = budgetInput.value.trim();
 
-  if (
-    budgetValue === "" ||
-    isNaN(budgetValue) ||
-    parseFloat(budgetValue) <= 0
-  ) {
+  if (budgetValue === "" || isNaN(budgetValue) || parseFloat(budgetValue) <= 0) {
     showError("⚠ Please enter a valid budget amount greater than 0");
   } else {
     budgetCard.textContent = parseFloat(budgetValue);
