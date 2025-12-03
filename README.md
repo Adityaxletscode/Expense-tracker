@@ -8,6 +8,7 @@ Frontend is built with **HTML, CSS, JavaScript**, while the backend API is power
 
 ## 📸 Screenshots
 
+![Expense Tracker Screenshot](./docs/loginPage.png) 
 ![Expense Tracker Screenshot](./docs/expense1.png)  
 ![Budget Details Screenshot](./docs/expense2.png)
 
