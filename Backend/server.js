@@ -5,7 +5,7 @@ import bodyParser from "body-parser";
 import bcrypt from "bcryptjs";
 import cors from "cors";
 import dotenv from "dotenv";
-import User from "./models/user.js"; // Make sure this exists
+import User from "./models/user.js";
 
 dotenv.config();
 

@@ -98,7 +98,8 @@ body {
   color: var(--light);
   text-align: center;
   padding: 1rem 0;
-  width: 650px;
+  width: 90%;
+  max-width: 650px;
   margin: 0 auto;
   border-radius: 5px;
   opacity: 0;
@@ -379,30 +380,70 @@ body {
 
 /* Very small screens */
 @media (max-width: 480px) {
+  .container {
+    margin: 1rem 0.5rem;
+  }
+
   .container h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    padding: 1rem 0;
+  }
+
+  .budget_content {
+    padding: 1rem 0.5rem;
   }
 
   .budget_content .btn {
     padding: 0.5rem;
-  }
-
-  .tbl_tr_content {
-    grid-template-columns: 1fr 30% 25% 2fr;
     font-size: 0.8rem;
   }
 
+  .tbl_content {
+    padding: 0.5rem;
+    margin: 0.5rem 0.2rem;
+  }
+
+  /* Adjust grid for small screens */
+  .tbl_tr_content {
+    grid-template-columns: 0.5fr 35% 25% 2fr; /* Reduced index column */
+    font-size: 0.7rem;
+    padding: 0.3rem 0.5rem;
+    gap: 0.2rem;
+  }
+
+  .tbl_tr_content button {
+    padding: 0.2rem 0.4rem;
+    font-size: 0.7rem;
+  }
+
+  .container .cards li {
+    padding: 0.8rem;
+    gap: 0.8rem;
+  }
+
   .container .cards li .bx {
-    width: 3.5rem;
-    height: 3.5rem;
-    font-size: 28px;
+    width: 3rem;
+    height: 3rem;
+    font-size: 24px;
+  }
+
+  .container .cards li .info h3 {
+    font-size: 1.2rem;
   }
 
   /* 🔸 Login button small screens */
   .login-btn {
-    top: 8px;
-    right: 8px;
-    font-size: 0.75rem;
-    padding: 0.4rem 0.9rem;
+    top: 10px;
+    right: 10px;
+    font-size: 0.7rem;
+    padding: 0.3rem 0.7rem;
+  }
+
+  /* Welcome message adjustment */
+  #welcomeMsg {
+    font-size: 1rem !important;
+    top: 50px !important;
+    right: 10px !important;
+    text-align: right !important;
   }
 }

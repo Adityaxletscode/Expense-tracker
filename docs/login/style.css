@@ -118,3 +118,45 @@ button.disable{
     cursor: pointer;
     font-size: 16px;
 }
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .form-box {
+    width: 90%;
+    min-width: unset;
+    padding: 30px 20px;
+  }
+
+  .form-box h1 {
+    font-size: 24px;
+  }
+
+  .container {
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('nature.jpeg'); /* Ensure background stays */
+  }
+
+  .input-field {
+    max-height: 50px;
+    margin: 10px 0;
+  }
+
+  .input-field input {
+    padding: 12px 10px;
+    font-size: 14px;
+    width: 85%; /* Ensure space for icons */
+  }
+
+  .input-field i {
+    font-size: 14px;
+    margin-left: 10px;
+  }
+
+  .btn-field button {
+    height: 35px;
+    font-size: 14px;
+  }
+
+  .input-group {
+    height: 240px; /* Adjust height for smaller inputs */
+  }
+}
